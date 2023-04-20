@@ -1,0 +1,24 @@
+.sendData {
+  position: absolute;
+  right: 0;
+  top: 60px;
+  transition: all 300ms ease;
+
+  a {
+    text-decoration: none;
+    color: #fff;
+    background-color: #5c9cd8;
+    padding: 6px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 300ms ease-in;
+
+    :hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
