@@ -1,6 +1,7 @@
 import "./App.css";
 import { MainPage } from "./pages/main/MainPage";
 import { Routes, Route } from "react-router-dom";
+import Login from "./pages/main/Login/Login";
 
 function App() {
   //for Table component
@@ -34,6 +35,7 @@ function App() {
             </>
           }
         ></Route>
+        <Route path="/login" element={<Login></Login>}></Route>
       </Routes>
     </div>
   );

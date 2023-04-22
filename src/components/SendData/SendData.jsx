@@ -1,6 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { useCallback } from "react";
+import { useMutation } from "react-query";
 import "./SendData.scss";
 import { useSelector } from "react-redux";
 
@@ -50,6 +49,8 @@ const convertDetailsToData = (details) => {
   return newDetail;
 };
 
+//post items
+
 export const SendData = () => {
   const [sendSheet, sendSetSheet] = React.useState();
   const [sendDetails, sendSetDetails] = React.useState();
@@ -69,10 +70,57 @@ export const SendData = () => {
   }, [details]);
   console.log(sendDetails);
 
+  //post data
+
+  const createSheetData = async (data) => {
+    const response = await fetch("http://46.8.43.42//api/v1/open/save/paper", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    if (!response.ok) {
+      throw new Error("Failed to create data");
+    }
+    return response.json();
+  };
+
+  const createDetailsData = async (data) => {
+    const response = await fetch("http://46.8.43.42//api/v1/open/detail/save", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    if (!response.ok) {
+      throw new Error("Failed to detail data");
+    }
+    return response.json();
+  };
+
+  const { mutate: mutateSheet, isLoading: isLoadingSheet } =
+    useMutation(createSheetData);
+  const { mutate: mutateDetails, isLoading: isLoadingDetails } =
+    useMutation(createDetailsData);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const sheetData = { sheet: sendSheet };
+    const detailsData = { details: sendDetails };
+    mutateSheet(sheetData);
+    mutateDetails(detailsData);
+  };
+
   // convertInputsToData(inputs);
   return (
     <div className="sendData">
-      <Link to={"/canvas"}>Отправить данные</Link>
+      {sendSheet && sendDetails && (
+        <button type="submit" onClick={(e) => handleSubmit(e)}>
+          {isLoadingSheet && isLoadingDetails ? "Sending..." : "Send Data"}
+        </button>
+      )}
     </div>
   );
 };

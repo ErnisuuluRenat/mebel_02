@@ -1,0 +1,74 @@
+.login__container {
+  width: 600px;
+  margin: 100px auto;
+  -webkit-box-shadow: 10px 5px 16px 0px rgba(0, 213, 205, 0.29);
+  -moz-box-shadow: 10px 5px 16px 0px rgba(0, 213, 205, 0.29);
+  box-shadow: 10px 5px 16px 0px rgba(0, 213, 205, 0.29);
+  padding: 30px;
+  border-radius: 10px;
+
+  h3 {
+    font-size: 28px;
+    color: #000;
+    margin-bottom: 30px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  label {
+    color: #000;
+    font-weight: bold;
+  }
+
+  .login__input__container {
+    input {
+      width: 100%;
+      display: block;
+      margin-top: 8px;
+      font-weight: 500;
+      padding: 14px 12px;
+      font-size: 19px;
+      border-radius: 4px;
+      border: none;
+      outline: none;
+      background-color: #fdda0d;
+
+      &:hover {
+        background-color: #ffff00;
+      }
+
+      &:focus {
+        background: #ffaa33;
+        box-shadow: 0px 0px 0px 2px blue;
+      }
+    }
+
+    .email_inp {
+      margin-bottom: 20px;
+    }
+
+    .password_inp {
+      margin-bottom: 30px;
+    }
+  }
+
+  button {
+    padding: 14px 22px;
+    border: none;
+    background-color: aqua;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: bold;
+    color: #252200;
+    width: 100%;
+
+    &:hover {
+      background-color: rgb(28, 147, 147);
+    }
+
+    &:focus {
+      box-shadow: 0px 0px 0px 3px rgb(255, 38, 38);
+    }
+  }
+}

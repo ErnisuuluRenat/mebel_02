@@ -4,7 +4,7 @@
   top: 60px;
   transition: all 300ms ease;
 
-  a {
+  button {
     text-decoration: none;
     color: #fff;
     background-color: #5c9cd8;
@@ -12,6 +12,9 @@
     border-radius: 10px;
     cursor: pointer;
     transition: all 300ms ease-in;
+    list-style: none;
+    text-decoration: none;
+    border: none;
 
     :hover {
       transform: scale(1.1);
