@@ -50,10 +50,10 @@ const Result = () => {
           {data.map((obj) => (
             <>
             <tr>
-              <td>{obj.result.paper?.name}</td>
-              <td>{obj.result.paper?.width}</td>
-              <td>{obj.result.paper?.height}</td>
-              <td>{obj.result.quantity}</td>
+              <td>{obj.result?.paper?.name}</td>
+              <td>{obj.result?.paper?.width}</td>
+              <td>{obj.result?.paper?.height}</td>
+              <td>{obj.result?.quantity}</td>
             </tr>
             <tr>
               <td>Детали</td>
