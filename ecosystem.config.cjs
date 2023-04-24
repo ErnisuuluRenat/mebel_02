@@ -1,4 +1,4 @@
-const apps = [
+module.exports = {apps : [
   {
     name: "vite-project",
     script: "serve",
@@ -14,5 +14,5 @@ const apps = [
       PORT: 3000
     }
   }
-];
+]}
     
