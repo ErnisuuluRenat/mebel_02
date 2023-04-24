@@ -1,7 +1,7 @@
 module.exports = {apps : [
   {
     name: "vite-project",
-    script: "serve",
+    script: "yarn",
     args: "vite build && serve -s build -l 3000",
     instances: 1,
     autorestart: true,
