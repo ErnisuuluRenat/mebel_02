@@ -15,17 +15,19 @@ export const inputDataSlice = createSlice({
     updateInput: (state, action) => {
       const { index, name, value } = action.payload;
       const inputObject = state[index] || {};
-      if (value >= 0) {
+      if (name === "description") {
         inputObject[name] = value;
-        state[index] = inputObject;
+      } else if (value >= 0) {
+        inputObject[name] = value;
       }
+      state[index] = inputObject;
     },
     updateInputs: (state, action) => {
       const newInputs = action.payload.map((input) => ({
         x: input.x || "",
         y: input.y || "",
         quantity: input.quantity || "",
-        description: input.description || "",
+        description: input. description || "",
       }));
       return newInputs;
     },

@@ -1,41 +1,22 @@
 import "./App.css";
 import { MainPage } from "./pages/main/MainPage";
-import { Routes, Route } from "react-router-dom";
-import Login from "./pages/main/Login/Login";
+import { Routes, Route,} from "react-router-dom";
+import Login from "./pages/Login/Login";
+import Archive from "./pages/Archieve/Archive";
+import { RequireAuth } from "./components/RequireAuth/RequireAuth";
+import Navbar from "./components/Navbar/Navbar";
+import Result from "./pages/Result/Result";
 
 function App() {
-  //for Table component
-
-  // const [inputs, setInputs] = React.useState([
-  //   { x: 2750, y: 1830, quantity: 1, note: "" },
-  // ]);
-
-  // const handleInputChange = (inputValue, inputName, index) => {
-  //   setInputs((prevInputs) => {
-  //     const newInputs = [...prevInputs];
-  //     const inputObject = newInputs[index] || {};
-  //     inputObject[inputName] = inputValue;
-  //     newInputs[index] = inputObject;
-  //     return newInputs;
-  //   });
-  // };
-
-  // const addRow = () => {
-  //   setInputs((prevInputs) => [...prevInputs, {}]);
-  // };
-
+  
   return (
     <div className="App">
+      <Navbar />
       <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <MainPage />
-            </>
-          }
-        ></Route>
-        <Route path="/login" element={<Login></Login>}></Route>
+        <Route path="/" element={<RequireAuth><MainPage /></RequireAuth>}></Route>
+        <Route path="/login" element={<Login/>}></Route>
+        <Route path="/archive" element={<RequireAuth><Archive/></RequireAuth>}></Route>
+        <Route path="/result/:id" element={<RequireAuth><Result/></RequireAuth>}></Route>
       </Routes>
     </div>
   );

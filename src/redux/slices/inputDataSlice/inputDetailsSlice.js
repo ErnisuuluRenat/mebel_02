@@ -15,10 +15,12 @@ export const inputDataSlice = createSlice({
     updateDetail: (state, action) => {
       const { index, name, value } = action.payload;
       const inputObject = state[index] || {};
-      if (value >= 0) {
+      if (name === "description") {
         inputObject[name] = value;
-        state[index] = inputObject;
+      } else if (value >= 0) {
+        inputObject[name] = value;
       }
+      state[index] = inputObject;
     },
     updateDetails: (state, action) => {
       const newDetails = action.payload.map((input) => ({

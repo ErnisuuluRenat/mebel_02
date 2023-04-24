@@ -85,7 +85,7 @@ const Details = () => {
         <tbody>
           {details.map((inp, i) => (
             <>
-              <tr key={i}>
+              <tr key={i + 1000 * 0.15}>
                 <td className="numeric">{i + 1}</td>
                 <td>
                   <input

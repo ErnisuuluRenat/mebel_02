@@ -15,12 +15,12 @@ export const options = [
     valueY: 1100,
   },
   {
-    label: "Пдф",
+    label: "Хдф",
     valueX: 2500,
     valueY: 2070,
   },
   {
-    label: "Пдф большой",
+    label: "Хдф большой",
     valueX: 2800,
     valueY: 2070,
   },
