@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { json, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import './Result.scss';
 import { useQuery } from 'react-query';
 
