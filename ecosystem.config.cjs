@@ -1,4 +1,4 @@
-export const apps = [
+const apps = [
   {
     name: "vite-project",
     script: "yarn",
