@@ -1,7 +1,7 @@
 const apps = [
   {
     name: "vite-project",
-    script: "/Programmer/clientSide/mebel_02/src/main.jsx",
+    script: "mebel2-0.0.1-SNAPSHOT.jar",
     args: "vite build && serve -s build -l 3000",
     instances: 1,
     autorestart: true,
