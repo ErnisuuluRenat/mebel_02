@@ -128,7 +128,6 @@ const Details = () => {
         </tbody>
       </table>
 
-      {console.log(details)}
     </div>
   );
 };

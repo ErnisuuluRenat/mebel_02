@@ -1,29 +1,37 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+const loadTokenFromStorage = () => {
+      const token = localStorage.getItem('token');
+      if (token) {
+        axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+      }
+      return token;
+    }
+
 export const login = createAsyncThunk('auth/login', async (formData) => {
       const response = await axios.post("http://46.8.43.42:8080/auth/login", formData);
-      console.log(response.data);
       return response.data
 })
 
 const authSlice = createSlice({
       name : 'auth',
       initialState : {
-            isAuthenticated: false,
+            isAuthenticated: !!loadTokenFromStorage(),
             user : null,
             isLoading : false,
             isError : false,
             isSuccess: false,
             errorMessage : '',
-            token: null,
+            token: loadTokenFromStorage(),
       },
 
       reducers: {
-            logout : (states) => {
-                  state.isAuthenticated = false,
-                  state.user = null,
-                  localStorage.removeItem('token')
+            logout : (state) => {
+                  state.isAuthenticated = false;
+                  state.user = null;
+                  localStorage.removeItem('token');
+                  delete axios.defaults.headers.common.Authorization;
             }
       },
       extraReducers : (builder) => {
@@ -42,7 +50,9 @@ const authSlice = createSlice({
                   state.isSuccess = true;
                   state.isAuthenticated = true;
                   state.user = action.payload;
-                  localStorage.setItem('token', action.payload['jwt-token'])
+                  state.token = action.payload['jwt-token'];
+                  localStorage.setItem('token', state.token);
+                  axios.defaults.headers.common.Authorization = `Bearer ${state.token}`;
                   }
                   
             })

@@ -64,8 +64,6 @@ const Table = ({ title, cas }) => {
 
   //function to check if it's not empty object
 
-  console.log(data);
-
   return (
     <div className="table">
       <h1>{title}</h1>

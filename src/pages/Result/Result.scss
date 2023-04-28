@@ -10,6 +10,13 @@
             justify-content: space-between;
       }
 
+      .paper {
+            color: brown;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+      }
+
       table {
             margin-top: 20px;
             border-collapse: collapse;
@@ -19,13 +26,13 @@
           tr th {
             font-size: 20px;
             padding: 20px;
-            border: 10px solid #150000;
+            border: 4px solid #150000;
             text-align: left;
             background-color: rgba(217, 221, 146, 0.2);
           }
         
           tr td {
-            border: 5px solid #6a5353;
+            border: 3px solid #6a5353;
             text-align: left;
             padding: 3px 0px;
             padding-left: 10px;

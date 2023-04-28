@@ -25,7 +25,6 @@ const Login = () => {
   const [formData, setFormData] = React.useState({ username: "", password: "" });
 
   const { isLoading, isError, isSuccess, isAuthenticated, userRole,user } = useSelector(authSelector);
-  console.log(user)
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
